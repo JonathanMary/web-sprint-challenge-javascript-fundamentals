@@ -78,11 +78,7 @@ const zooAnimals = [
   */
  
  function lowerCaseNames(data){
-   function toLower(obj){
-     return obj["animal_name"].toLowerCase();
-    }
-    return data.map(toLower);
-    
+    return data.map(a => a["animal_name"].toLowerCase());
   }
   //lowerCaseNames(zooAnimals); FOR TEST
   
@@ -92,10 +88,7 @@ const zooAnimals = [
   */
  
  function lowPopulationAnimals(data){
-   function lowPop(obj){
-     return obj["population"] < 5;
-    }
-    return data.filter(lowPop);
+    return data.filter(a => a.population<5);
   }
   
   /* 🦁🦁🦁 Request 4: .reduce() 🦁🦁🦁
@@ -105,10 +98,7 @@ const zooAnimals = [
   */
  
  function USApop(data){
-   function count(total, num){
-     return total + num["population"];
-    }
-    return data.reduce(count, 0);
+    return data.reduce((a,b) => a + b["population"], 0);
   }
   
   
@@ -120,29 +110,21 @@ const zooAnimals = [
   * The consume function should return the invocation of cb, passing a and b into cb as arguments
   */
  
- function consume(a, b, cb){
-   return cb(a, b);
-  }
+  let consume = (a, b, cb) => cb(a, b);
   
   
   /* 🦁🦁🦁 Step 2: Create several functions to callback with consume(); 🦁🦁🦁 */
   // 🦁🦁🦁 Use add to return the sum of two numbers 🦁🦁🦁
   
-  function add(num1, num2){
-    return num1 + num2;
-  }
+  let add = (num1, num2) => num1 + num2;
   
   // 🦁🦁🦁 Use multiply to return the product of two numbers 🦁🦁🦁
   
-  function multiply(num1, num2){
-    return num1 * num2;
-  }
+  let multiply = (num1, num2) => num1 * num2;
   
   // 🦁🦁🦁 Use greeting to accept a first and last name and return "Hello {first-name} {last-name}, nice to meet you!" 🦁🦁🦁
   
-  function greeting(firstN, lastN){
-    return `Hello ${firstN} ${lastN}, nice to meet you!`;
-  }
+  let greeting = (firstN, lastN) => `Hello ${firstN} ${lastN}, nice to meet you!`;
   
   // 🦁🦁🦁 Step 3: Check your work by un-commenting the following calls to consume(): 🦁🦁🦁 
   // ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️
